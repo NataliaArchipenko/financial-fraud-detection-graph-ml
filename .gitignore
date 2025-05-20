@@ -1,0 +1,8 @@
+# Große CSV-Dateien ignorieren
+*.csv
+
+# Python Bytecode
+*.pyc
+
+# Virtuelle Umgebung
+venv/
