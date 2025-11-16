@@ -147,6 +147,9 @@ jupyter notebook
 
 **Autorin**
 **Natalia Archipenko**
+
 Fachinformatikerin für Daten- und Prozessanalyse
-→ Spezialisierung: Datenanalyse, Machine Learning, Anomalieerkennung, Zeitreihen & Graph Analytics
+
+→ Spezialisierung: ***Datenanalyse, Machine Learning, Anomalieerkennung, Zeitreihen & Graph Analytics***
+
 LinkedIn: https://linkedin.com/in/natalia-archipenko-335357271
