@@ -136,7 +136,7 @@ pip install -r requirements.txt
 3. Notebook öffnen:
 jupyter notebook
 
-4.Notebook ausführen.  Alle Schritte sind dokumentiert.
+4. Notebook ausführen.  Alle Schritte sind dokumentiert.
 
 **Ergebnisse**
 - IsolationsForest erkennt klar abgrenzbare Anomalieknoten
