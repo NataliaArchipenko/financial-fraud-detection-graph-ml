@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="banner.png" width="100%" />
+</p>
+
 # Fraud Detection mit Graph Analytics & Machine Learning  
 ### Node2Vec • Isolation Forest • PCA • Feature Engineering • Finanztransaktionsanalyse
 
