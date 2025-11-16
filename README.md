@@ -13,7 +13,7 @@
 ##  Projektbeschreibung
 
 Dieses Projekt untersucht ein großes synthetisches Finanztransaktions-Dataset mit über **6,3 Millionen Transaktionen**.  
-Ziel ist es, **Anomalien und potenzielle Betrugsaktivitäten** mittels:
+Ziel ist es, **Anomalien und potenzielle Betrugsaktivitäten** mittels
 
 - statistischer Analyse  
 - Graphenmodellierung  
@@ -30,7 +30,7 @@ Das Projekt kombiniert klassische Datenanalyse mit modernen Graph-Methoden und l
 
 ## Projektstruktur
 
-project:
+### Project:
   - erste_datei_analyse.ipynb # Grundlegende EDA & statistische Analyse
   - fin_analyse.ipynb # Graph Analytics + ML + Node2Vec
   - data/ # (optional) Beispieldaten
