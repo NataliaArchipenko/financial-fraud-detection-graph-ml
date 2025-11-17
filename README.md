@@ -57,7 +57,9 @@ Das Projekt kombiniert klassische Datenanalyse mit modernen Graph-Methoden und l
 Beispiel:
 
 df.isna().sum()
+
 df.describe()
+
 sns.heatmap(df.corr())
 
 **2. Graph-Modellierung (NetworkX)**
