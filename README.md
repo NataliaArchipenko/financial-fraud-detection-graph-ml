@@ -54,44 +54,26 @@ Das Projekt kombiniert klassische Datenanalyse mit modernen Graph-Methoden und l
 - Histogramme & Verteilungen  
 - Korrelationen visualisieren  
 
-Beispiel:
-
-df.isna().sum()
-
-df.describe()
-
-sns.heatmap(df.corr())
-
 **2. Graph-Modellierung (NetworkX)**
 Jede Transaktion wird als gerichtete Kante im Graphen modelliert:
 
-Node = Kunde / Konto
-
-Edge = Geldfluss (nameOrig -> nameDest)
-
-Edge-Attribute: amount
-
-G = nx.DiGraph()
-
-for idx, row in df_sample.iterrows():
-
-    G.add_edge(row['nameOrig'], row['nameDest'], amount=row['amount'])
-    
+- Node = Kunde / Konto
+- Edge = Geldfluss (nameOrig -> nameDest)
+- Edge-Attribute: amount
+-   
 **3. Node2Vec-Embeddings**
 Um Netzwerkmuster zu erkennen, werden Kund:innen mittels Node2Vec in einen 64-dimensionalen Vektorraum eingebettet.
-
-node2vec = Node2Vec(G_sample, dimensions=64, walk_length=30, num_walks=200)
-
-model = node2vec.fit()
+- ***node2vec = Node2Vec(G_sample, dimensions=64, walk_length=30, num_walks=200)***
+- ***model = node2vec.fit()***
 
 Dadurch werden ähnliche Transaktionsmuster rechnerisch vergleichbar.
 
 **4. Anomalieerkennung (Isolation Forest)**
 Die Embeddings werden anschließend mit einem IsolationForest-Modell untersucht:
 
-clf = IsolationForest(contamination=0.01)
+***clf = IsolationForest(contamination=0.01)***
 
-df_vectors['anomaly'] = clf.fit_predict(df_vectors)
+***df_vectors['anomaly'] = clf.fit_predict(df_vectors)***
 
  1 = normal
 -1 = Anomalie
@@ -99,15 +81,15 @@ df_vectors['anomaly'] = clf.fit_predict(df_vectors)
 **5. Visualisierung (PCA)**
 Zur Darstellung der Anomalien werden die Embeddings auf 2 Dimensionen reduziert:
 
-pca = PCA(n_components=2)
+***pca = PCA(n_components=2)***
 
-df_vectors[['pca1', 'pca2']] = pca.fit_transform(df_vectors.drop('anomaly', axis=1))
+***df_vectors[['pca1', 'pca2']] = pca.fit_transform(df_vectors.drop('anomaly', axis=1))***
 
  Klar erkennbare Outlier bilden die roten Punkte.
 
 **6. Analyse der verdächtigen Knoten**
 Top-N auffällige Kunden:
-anomaly_nodes = df_vectors[df_vectors['anomaly'] == -1].index
+***anomaly_nodes = df_vectors[df_vectors['anomaly'] == -1].index***
 
 Verteilung der Transaktionsbeträge:
 - typische Peaks
@@ -119,7 +101,7 @@ Kombination aus:
 - Node2Vec Features
 - aggregierten Kundenstatistiken (mean, count, sum)
 
-df_combined = df_vectors.join(user_features, how='left').fillna(0)
+***df_combined = df_vectors.join(user_features, how='left').fillna(0)***
 
 Diese Fusion verbessert die Modellleistung erheblich.
 
