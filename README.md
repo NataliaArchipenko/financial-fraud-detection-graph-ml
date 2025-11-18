@@ -60,7 +60,7 @@ Jede Transaktion wird als gerichtete Kante im Graphen modelliert:
 - Node = Kunde / Konto
 - Edge = Geldfluss (nameOrig -> nameDest)
 - Edge-Attribute: amount
--   
+  
 **3. Node2Vec-Embeddings**
 Um Netzwerkmuster zu erkennen, werden Kund:innen mittels Node2Vec in einen 64-dimensionalen Vektorraum eingebettet.
 - ***node2vec = Node2Vec(G_sample, dimensions=64, walk_length=30, num_walks=200)***
