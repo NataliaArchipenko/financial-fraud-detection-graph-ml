@@ -142,7 +142,7 @@ Daten	                    synthetische Finanztransaktionen
 
 **Nutzung**
 1. Repository klonen:
-git clone https://github.com/DEIN_USERNAME/DEIN_REPO.git
+git clone https://github.com/NataliaArchipenko/financial-fraud-detection-graph-ml.git
 2. Requirements installieren:
 pip install -r requirements.txt
 3. Notebook öffnen:
