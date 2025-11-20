@@ -35,11 +35,11 @@ Das Projekt kombiniert klassische Datenanalyse mit modernen Graph-Methoden und l
 ## Projektstruktur
 
 ### Project:
-  - erste_datei_analyse.ipynb # Grundlegende EDA & statistische Analyse
-  - fin_analyse.ipynb # Graph Analytics + ML + Node2Vec
-  - data/ # (optional) Beispieldaten
-  - README.md # Dokumentation
-  - requirements.txt # benötigte Libraries
+  - erste_datei_analyse.ipynb // Grundlegende EDA & statistische Analyse
+  - fin_analyse.ipynb // Graph Analytics + ML + Node2Vec
+  - data // Beispieldaten
+  - README.md // Dokumentation
+  - requirements.txt // benötigte Libraries
 
 ---
 
@@ -88,6 +88,7 @@ Zur Darstellung der Anomalien werden die Embeddings auf 2 Dimensionen reduziert:
  Klar erkennbare Outlier bilden die roten Punkte.
 
 **6. Analyse der verdächtigen Knoten**
+
 Top-N auffällige Kunden:
 ***anomaly_nodes = df_vectors[df_vectors['anomaly'] == -1].index***
 
