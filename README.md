@@ -5,11 +5,10 @@
 # Fraud Detection mit Graph Analytics & Machine Learning  
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-yellow)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-orange)
-![NetworkX](https://img.shields.io/badge/NetworkX-Graph%20Analysis-green)
-![Node2Vec](https://img.shields.io/badge/Node2Vec-Embeddings-purple)
-![Status: Completed](https://img.shields.io/badge/Status-Completed-brightgreen)
+![pandas](https://img.shields.io/badge/pandas-library-yellow)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
+![NetworkX](https://img.shields.io/badge/NetworkX-graph%20analysis-green)
+![Status](https://img.shields.io/badge/Status-completed-brightgreen)
 
 ---
 
