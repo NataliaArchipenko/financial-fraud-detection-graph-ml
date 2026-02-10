@@ -2,7 +2,7 @@
   <img src="banner_1.png" width="100%" />
 </p>
 
-# Fraud Detection mit Graph Analytics & Machine Learning  
+# Fraud Detection mit Graph Analytics and Machine Learning  
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![pandas](https://img.shields.io/badge/pandas-library-yellow)
