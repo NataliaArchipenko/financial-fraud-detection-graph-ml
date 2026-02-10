@@ -9,7 +9,7 @@
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-orange)
 ![NetworkX](https://img.shields.io/badge/NetworkX-Graph%20Analysis-green)
 ![Node2Vec](https://img.shields.io/badge/Node2Vec-Embeddings-purple)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+![Status: Completed](https://img.shields.io/badge/Status-Completed-brightgreen)
 
 ---
 
