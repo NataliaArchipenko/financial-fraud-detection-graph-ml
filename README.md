@@ -3,7 +3,6 @@
 </p>
 
 # Fraud Detection mit Graph Analytics & Machine Learning  
-### Node2Vec • Isolation Forest • PCA • Feature Engineering • Finanztransaktionsanalyse
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-yellow)
@@ -14,136 +13,55 @@
 
 ---
 
-##  Projektbeschreibung
+##  Kurzbeschreibung
 
-Dieses Projekt untersucht ein großes synthetisches Finanztransaktions-Dataset mit über **6,3 Millionen Transaktionen**.  
-Ziel ist es, **Anomalien und potenzielle Betrugsaktivitäten** mittels
+Dieses Projekt analysiert ein großes synthetisches Finanztransaktions-Dataset (≈ 6,3 Mio. Transaktionen), 
+um Anomalien und potenzielle Betrugsfälle mithilfe von Graph Analytics und Machine-Learning-Verfahren zu identifizieren.
 
-- statistischer Analyse  
-- Graphenmodellierung  
-- Node2Vec-Embeddings  
-- Isolation Forest  
-- PCA-Visualisierung  
-- Feature Importance (Random Forest)
-
-zu identifizieren.
-
-Das Projekt kombiniert klassische Datenanalyse mit modernen Graph-Methoden und liefert eine vollständige Fraud-Detection-Pipeline.
+Der Fokus liegt auf der Kombination klassischer Anomalieerkennung mit graphbasierten Embeddings, um komplexe Transaktionsmuster sichtbar zu machen.
 
 ---
 
-## Projektstruktur
+##  Problemstellung
 
-### Project:
-  - erste_datei_analyse.ipynb // Grundlegende EDA & statistische Analyse
-  - fin_analyse.ipynb // Graph Analytics + ML + Node2Vec
-  - data // Beispieldaten
-  - README.md // Dokumentation
-  - requirements.txt // benötigte Libraries
+Finanztransaktionen bilden hochvernetzte Strukturen, in denen Betrug oft nicht durch einzelne Werte, sondern durch **Beziehungsmuster** auffällt. 
+Klassische Ansätze stoßen hier schnell an Grenzen.
 
 ---
 
-## Vorgehensweise
-
-### **1. Datenvorbereitung**
-- CSV einlesen  
-- Missing Values prüfen  
-- dtypes analysieren  
-- Duplikate entfernen  
-- Statistische Grundanalyse  
-- Histogramme & Verteilungen  
-- Korrelationen visualisieren  
-
-**2. Graph-Modellierung (NetworkX)**
-Jede Transaktion wird als gerichtete Kante im Graphen modelliert:
-
-- Node = Kunde / Konto
-- Edge = Geldfluss (nameOrig -> nameDest)
-- Edge-Attribute: amount
+## Lösungsansatz
+- Modellierung der Transaktionen als gerichteter Graph
+- Erzeugung von Node-Embeddings zur Abbildung von Netzwerkstrukturen
+- Anomalieerkennung auf Basis von Embeddings und aggregierten Kundenmerkmalen
+- Visualisierung auffälliger Muster zur Interpretation der Ergebnisse
   
-**3. Node2Vec-Embeddings**
-Um Netzwerkmuster zu erkennen, werden Kund:innen mittels Node2Vec in einen 64-dimensionalen Vektorraum eingebettet.
-- ***node2vec = Node2Vec(G_sample, dimensions=64, walk_length=30, num_walks=200)***
-- ***model = node2vec.fit()***
+---
 
-Dadurch werden ähnliche Transaktionsmuster rechnerisch vergleichbar.
+## Ergebnisse
+- Klare Identifikation auffälliger Knoten mit ungewöhnlichen Transaktionsmustern
+- Graph-Embeddings ermöglichen eine differenzierte Trennung normaler und verdächtiger Akteure
+- PCA-Visualisierung zeigt deutlich abgegrenzte Anomaliecluster
+- Kombination aus Netzwerk- und Statistik-Features verbessert die Modellqualität
+Beispielhafte Visualisierungen sind im Repository enthalten.
 
-**4. Anomalieerkennung (Isolation Forest)**
-Die Embeddings werden anschließend mit einem IsolationForest-Modell untersucht:
+---
 
-***clf = IsolationForest(contamination=0.01)***
+## Technologien
+- **Python:** pandas, numpy, scikit-learn
+- **Graph Analytics:** NetworkX, Node2Vec
+- **Visualisierung:** matplotlib, seaborn
 
-***df_vectors['anomaly'] = clf.fit_predict(df_vectors)***
+---
 
- 1 = normal
--1 = Anomalie
+## Business-Relevanz
 
-**5. Visualisierung (PCA)**
-Zur Darstellung der Anomalien werden die Embeddings auf 2 Dimensionen reduziert:
+- Frühzeitige Erkennung potenzieller Betrugsaktivitäten
+- Übertragbar auf Banken, Zahlungsdienstleister und Risikomanagement-Systeme
+- Besonders geeignet für Szenarien mit komplexen Transaktionsnetzwerken
 
-***pca = PCA(n_components=2)***
+---
 
-***df_vectors[['pca1', 'pca2']] = pca.fit_transform(df_vectors.drop('anomaly', axis=1))***
-
- Klar erkennbare Outlier bilden die roten Punkte.
-
-**6. Analyse der verdächtigen Knoten**
-
-Top-N auffällige Kunden:
-***anomaly_nodes = df_vectors[df_vectors['anomaly'] == -1].index***
-
-Verteilung der Transaktionsbeträge:
-- typische Peaks
-- Heavy-Tail-Verhalten
-- Outlier > 10⁶ z. B. bei Betrugsfällen typisch
-
-**7. Erweiterung: Hybrid-Modell**
-Kombination aus:
-- Node2Vec Features
-- aggregierten Kundenstatistiken (mean, count, sum)
-
-***df_combined = df_vectors.join(user_features, how='left').fillna(0)***
-
-Diese Fusion verbessert die Modellleistung erheblich.
-
-**Beispiele für Visualisierungen**
-- Histogramme der Transaktionsbeträge
-- Korrelationen
-- Degree-Verteilungen
-- PCA-Projektion
-- Isolation-Forest-Anomalien
-- Feature-Importance (Random Forest)
-
-**Verwendete Technologien**
-Bereich	                  Technologie
-Programmiersprache	      Python
-Datenanalyse	            Pandas, NumPy
-ML / Anomalieerkennung	  Scikit-Learn
-Graphen	                  NetworkX, Node2Vec
-Visualisierung	          Matplotlib, Seaborn
-Daten	                    synthetische Finanztransaktionen
-
-**Nutzung**
-1. Repository klonen:
-git clone https://github.com/NataliaArchipenko/financial-fraud-detection-graph-ml.git
-2. Requirements installieren:
-pip install -r requirements.txt
-3. Notebook öffnen:
-jupyter notebook
-4. Notebook ausführen.  Alle Schritte sind dokumentiert.
-
-**Ergebnisse**
-- IsolationsForest erkennt klar abgrenzbare Anomalieknoten
-- Node2Vec bildet erfolgreiche Kunden-Embedding-Strukturen
-- PCA zeigt gut sichtbare Outlier
-- Hybrides Feature-Set liefert verbesserte Modellqualität
-- Kunden mit hoher Degree-Zahl sind besonders verdächtig
-
-**Autorin**
+##Autorin**
 **Natalia Archipenko**
-
-Fachinformatikerin für Daten- und Prozessanalyse
-
-→ Spezialisierung: ***Datenanalyse, Machine Learning, Anomalieerkennung, Zeitreihen & Graph Analytics***
 
 LinkedIn: https://linkedin.com/in/natalia-archipenko-335357271
