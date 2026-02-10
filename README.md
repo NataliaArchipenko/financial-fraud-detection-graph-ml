@@ -61,7 +61,7 @@ Beispielhafte Visualisierungen sind im Repository enthalten.
 
 ---
 
-##Autorin**
+## Autorin
 **Natalia Archipenko**
 
 LinkedIn: https://linkedin.com/in/natalia-archipenko-335357271
